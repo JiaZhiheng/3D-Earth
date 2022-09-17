@@ -403,7 +403,7 @@ export default class earth {
         const len = 5 + (e.name.length - 2) * 2;
         sprite.scale.set(len, 3, 1);
         sprite.position.set(p.x * 1.1, p.y * 1.1, p.z * 1.1);
-        this.earth.add(sprite);
+        // this.earth.add(sprite);
       }))
     }))
   }
@@ -427,23 +427,53 @@ export default class earth {
       number: 100,
       radius: 0.1,
     });
-    this.earthGroup.add(line);
+    // this.earthGroup.add(line);
 
-    // 在clone两条线出来
+    // 再clone九条线出来
+    const l1 = line.clone();
+    l1.scale.set(1.2, 1.2, 1.2);
+    l1.rotateX(-Math.PI / 6);
+    this.earthGroup.add(l1);
+
     const l2 = line.clone();
     l2.scale.set(1.2, 1.2, 1.2);
-    l2.rotateZ(Math.PI / 6);
+    l2.rotateX(Math.PI / 2);
     this.earthGroup.add(l2);
 
     const l3 = line.clone();
-    l3.scale.set(0.8, 0.8, 0.8);
-    l3.rotateZ(-Math.PI / 6);
+    l3.scale.set(1.2, 1.2, 1.2);
+    l3.rotateX(Math.PI / 6);
     this.earthGroup.add(l3);
 
     const l4 = line.clone();
-    l4.scale.set(1, 1, 1);
-    l4.rotateZ(-Math.PI / 6);
+    l4.scale.set(1.2, 1.2, 1.2);
+    l4.rotateY(-Math.PI / 3).rotateX(-Math.PI / 6);
     this.earthGroup.add(l4);
+
+    const l5 = line.clone();
+    l5.scale.set(1.2, 1.2, 1.2);
+    l5.rotateY(-Math.PI / 3).rotateX(Math.PI / 2);
+    this.earthGroup.add(l5);
+
+    const l6 = line.clone();
+    l6.scale.set(1.2, 1.2, 1.2);
+    l6.rotateY(-Math.PI / 3).rotateX(Math.PI / 6);
+    this.earthGroup.add(l6);
+  
+    const l7 = line.clone();
+    l7.scale.set(1.2, 1.2, 1.2);
+    l7.rotateY(Math.PI / 3).rotateX(-Math.PI / 6);
+    this.earthGroup.add(l7);
+
+    const l8 = line.clone();
+    l8.scale.set(1.2, 1.2, 1.2);
+    l8.rotateY(Math.PI / 3).rotateX(Math.PI / 2);
+    this.earthGroup.add(l8);
+
+    const l9 = line.clone();
+    l9.scale.set(1.2, 1.2, 1.2);
+    l9.rotateY(Math.PI / 3).rotateX(Math.PI / 6);
+    this.earthGroup.add(l9);
 
     /**
      * 旋转的球
@@ -477,7 +507,7 @@ export default class earth {
     );
 
 
-    this.circleLineList.push(line, l2, l3, l4);
+    this.circleLineList.push(line);
     ball.name = ball2.name = ball3.name = ball4.name = "卫星";
 
     for (let i = 0; i < this.options.satellite.number; i++) {
@@ -489,7 +519,7 @@ export default class earth {
         list[num * (i + 1)][1] * 1,
         list[num * (i + 1)][2] * 1
       );
-      line.add(ball01);
+      l1.add(ball01);
 
       const ball02 = ball2.clone();
       const num02 = Math.floor(list.length / this.options.satellite.number)
