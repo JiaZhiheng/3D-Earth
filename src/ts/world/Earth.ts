@@ -478,37 +478,43 @@ export default class earth {
     /**
      * 旋转的球
      */
-    const ball = new Mesh(
+     const ball = new Mesh(
       new SphereBufferGeometry(this.options.satellite.size, 32, 32),
       new MeshBasicMaterial({
-        color: "#e0b187", // 745F4D
+        color: "#e0b187",
       })
     );
 
-    const ball2 = new Mesh(
+    const ball1 = new Mesh(
       new SphereBufferGeometry(this.options.satellite.size, 32, 32),
       new MeshBasicMaterial({
-        color: "#628fbb", // 324A62
+        color: "#e0b187",
       })
     );
 
-    const ball3 = new Mesh(
-      new SphereBufferGeometry(this.options.satellite.size, 32, 32),
-      new MeshBasicMaterial({
-        color: "#806bdf", //6D5AC4
-      })
-    );
+    // const ball2 = new Mesh(
+    //   new SphereBufferGeometry(this.options.satellite.size, 32, 32),
+    //   new MeshBasicMaterial({
+    //     color: "#628fbb",
+    //   })
+    // );
 
-    const ball4 = new Mesh(
-      new SphereBufferGeometry(this.options.satellite.size, 32, 32),
-      new MeshBasicMaterial({
-        color: "#806bdf", //6D5AC4
-      })
-    );
+    // const ball3 = new Mesh(
+    //   new SphereBufferGeometry(this.options.satellite.size, 32, 32),
+    //   new MeshBasicMaterial({
+    //     color: "#806bdf",
+    //   })
+    // );
 
+    // const ball4 = new Mesh(
+    //   new SphereBufferGeometry(this.options.satellite.size, 32, 32),
+    //   new MeshBasicMaterial({
+    //     color: "#806bdf",
+    //   })
+    // );
 
-    this.circleLineList.push(line);
-    ball.name = ball2.name = ball3.name = ball4.name = "卫星";
+    // this.circleLineList.push(line);
+    ball1.name = "卫星";
 
     for (let i = 0; i < this.options.satellite.number; i++) {
       const ball01 = ball.clone();
@@ -517,36 +523,9 @@ export default class earth {
       ball01.position.set(
         list[num * (i + 1)][0] * 1,
         list[num * (i + 1)][1] * 1,
-        list[num * (i + 1)][2] * 1
+        list[num * (i + 1)][2] * 1,
       );
       l1.add(ball01);
-
-      const ball02 = ball2.clone();
-      const num02 = Math.floor(list.length / this.options.satellite.number)
-      ball02.position.set(
-        list[num02 * (i + 1)][0] * 1,
-        list[num02 * (i + 1)][1] * 1,
-        list[num02 * (i + 1)][2] * 1
-      );
-      l2.add(ball02);
-
-      const ball03 = ball3.clone();
-      const num03 = Math.floor(list.length / this.options.satellite.number)
-      ball03.position.set(
-        list[num03 * (i + 1)][0] * 1,
-        list[num03 * (i + 1)][1] * 1,
-        list[num03 * (i + 1)][2] * 1
-      );
-      l3.add(ball03);
-
-      const ball04 = ball4.clone();
-      const num04 = Math.floor(list.length / this.options.satellite.number)
-      ball04.position.set(
-        list[num04 * (i + 1)][0] * 1,
-        list[num04 * (i + 1)][1] * 1,
-        list[num04 * (i + 1)][2] * 1
-      );
-      l4.add(ball04);
     }
   }
 
